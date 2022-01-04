@@ -1,5 +1,9 @@
+import 'package:app02expenses/components/transaction_form.dart';
+import 'package:app02expenses/components/transaction_list.dart';
+import 'package:app02expenses/components/transaction_user.dart';
 import 'package:app02expenses/models/transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 main() => runApp(ExpensesApp());
 
@@ -8,7 +12,7 @@ class ExpensesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MyHomePage(),
     );
   }
@@ -17,41 +21,23 @@ class ExpensesApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
-  final _transactions = [
-    Transaction(
-      id: 't1',
-      title: 'Novo Tênis de Corrida',
-      value: 312.12,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Conta de Luz',
-      value: 212.21,
-      date: DateTime.now(),
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Depesas Pessoais'),
+        title: const Text('Depesas Pessoais'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            child: Card(
+            child: const Card(
               color: Colors.blue,
               child: Text('Grafico'),
               elevation: 5,
             ),
           ),
-          Card(
-            child: Text('Lista de transações'),
-          )
+          const TransactionUser(),
         ],
       ),
     );
